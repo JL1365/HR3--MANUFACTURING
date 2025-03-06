@@ -8,6 +8,8 @@ import authRoute from './routes/authRoute.js';
 
 import benefitRoute from './routes/benefitRoute.js';
 
+import incentiveRoute from './routes/incentiveRoute.js';
+
 dotenv.config();
 connectDB();
 
@@ -25,6 +27,8 @@ app.use(cookieParser());
 app.use("/api/auth",authRoute);
 
 app.use("/api/benefit",benefitRoute);
+
+app.use("/api/incentive",incentiveRoute);
 
 app.listen(HR3_PORT, () => {
     console.log(`Server is running at PORT: ${HR3_PORT}`)

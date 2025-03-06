@@ -65,7 +65,7 @@ export const updateBenefit = async (req, res) => {
             { new: true }
         );
 
-        res.status(200).json({ message: "Updating benefit successful!", updatedBenefit });
+        res.status(200).json({ message: "Updating benefit successful!",data:updatedBenefit });
     } catch (error) {
         console.log(`Error in updating benefit: ${error.message}`);
         return res.status(500).json({ message: "Internal server error!" });
