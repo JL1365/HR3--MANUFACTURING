@@ -1,0 +1,25 @@
+{
+  "dependencies": {
+    "bcryptjs": "^3.0.2",
+    "cookie-parser": "^1.4.7",
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2",
+    "jsonwebtoken": "^9.0.2",
+    "mongoose": "^8.12.1"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.9"
+  },
+  "name": "backend",
+  "version": "1.0.0",
+  "main": "backend/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon index.js"
+  },
+  "type": "module",
+  "keywords": [],
+  "author": "JL1365",
+  "license": "ISC",
+  "description": "This is for my research defense, and also i want to keep this secured thats why i recreated this from scratch"
+}
