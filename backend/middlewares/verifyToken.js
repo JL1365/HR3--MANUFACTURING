@@ -16,3 +16,29 @@ export const serviceVerifyToken = (req, res, next) => {
         next();
     });
 };
+
+
+export const verifyJwt = async (req, res, next) => {
+    let token = req.cookies.token;
+    
+    if (!token && req.headers.authorization) {
+        const authHeader = req.headers.authorization;
+        if (authHeader.startsWith("Bearer ")) {
+            token = authHeader.split(" ")[1];
+        }
+    }
+
+    if (!token) {
+        console.log("No token provided");
+        return res.status(401).json({ success: false, message: "No token provided" });
+    }
+
+    try {
+        const decoded = jwt.verify(token, process.env.JWT_SECRET);
+        req.user = { _id: decoded.userId, role: decoded.role, Hr: decoded.Hr };
+        next();
+    } catch (error) {
+        console.log("Token verification error:", error.message);
+        return res.status(403).json({ success: false, message: "Token is not valid" });
+    }
+};
